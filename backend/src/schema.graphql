@@ -1,0 +1,26 @@
+scalar Upload
+
+scalar Timestamp
+
+type Query {
+	info: String!
+	allFeed: [Post!]
+	feed(id: ID!): Post
+}
+
+type Mutation {
+	uploadPost(file: Upload!, content: String): Post!
+}
+
+type Post {
+	id: ID!
+	content: String
+	url: String!
+	createdAt: Timestamp
+}
+
+type File {
+	filename: String!
+	mimetype: String!
+	encoding: String!
+}
